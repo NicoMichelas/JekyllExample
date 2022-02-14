@@ -10,9 +10,9 @@
 # SITE SETTINGS
 #
 title: Analyse Performance Report
-description: "a basic bootstrap template for Jekyll with GitHub Pages"
-year: 2020
-author: evan will 
+description: "Report of our work on the Video_Analytic_Performance"
+year: 2022
+author: Nico Michel 
 # add search box to navbar, true/false
 search: true
 
@@ -59,3 +59,10 @@ defaults:
 
 # ignore stuff
 exclude: [docs/, Rakefile, README.md, LICENSE]
+
+responsive_image:
+  template: _includes/responsive-image.html
+  sizes:
+    - width: 320
+    - width: 480
+    - width: 800
