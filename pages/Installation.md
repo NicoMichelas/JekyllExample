@@ -1,6 +1,6 @@
 ---
-title: Example Page
-nav: Example
+title: Installation 
+nav: installation
 nav_order: 1
 ---
 
