@@ -60,3 +60,5 @@ defaults:
 
 # ignore stuff
 exclude: [docs/, Rakefile, README.md, LICENSE]
+
+theme: "just-the-docs"
