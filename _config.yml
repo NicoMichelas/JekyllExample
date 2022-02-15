@@ -31,6 +31,10 @@ baseurl: /video_analyse_performance_report
 # location of code, the full url to your github repository
 source-code: https://github.com/NicoMichelas/Jekyll_example
 
+
+root: /octo-5
+<link rel="stylesheet" href="{{ root_url }}/css/main.css">
+
 ##########
 # GOOGLE ANALYTICS [optional!]
 #
@@ -59,11 +63,3 @@ defaults:
 
 # ignore stuff
 exclude: [docs/, Rakefile, README.md, LICENSE]
-
-responsive_image:
-  template: _includes/responsive-image.html
-  sizes:
-    - width: 320
-    - width: 480
-    - width: 800
-theme: jekyll-theme-cayman
