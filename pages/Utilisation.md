@@ -66,3 +66,26 @@ Les fonctions frame_start(), frame_stop() et frame_exec() ont entre autre la mê
 4. use customization options
 
 See [docs/create-website.md](https://github.com/thecdil/bootstrap-template/blob/main/docs/create-website.md) for details!
+
+## Execution du thread GPU:
+Lorsque l'on lance ce thread dans le programme d'analyse de performance[link] on fait directement appel à la fonction run().
+### La fonction run()
+Cette fonction créée une liste list_Gpu=[] ainsi qu'une variable gpu_calc initialisé à 1 qui permet d'entrer dans la boucle qui ajoute la consommation actuelle du GPU dans notre list_Gpu grâce à la fonction gpu_tot_util() et cela tant que notre variable gpu_calc vaut 1.
+
+### La fonction gpu_tot_util()
+Cette fonction permet d'accéder au fichier gpu.0 qui correspond à l'état du GPU en temps réel. Ainsi on récupère cette valeur qu'on retourne grâce à la variable load.
+
+### La fonction stop()
+Comme sont nom l'indique, cette fonction arrête notre thread grâce à la variable gpu_calc que l'on passe à 0 et qui va en parallèle stopper la boucle while présente dans la fonction run(). Ensuite on effectue un "échantillonnage" des données présente dans list_Gpu afin d'ajouter seulement une mesure sur 100 dans notre nouvelle liste list_Gpu_tiny. Ceci nous permet d'éviter d'avoir un trop grand nombre de valeur à exploiter par la suite.
+
+
+## Execution du thread CPU:
+Lorsque l'on lance ce thread dans le programme d'analyse de performance[link] on fait directement appel à la fonction run().
+### La fonction run()
+On commence par créé 5 listes, dont une totale et 4 dédiés à nos 4 CPU et une variable cpu_calc initilisé à 1 pour servir de condition à notre boucle while qui suit. Dans cette boucle, on récupère l'état de nos CPU à l'aide de la fonction cpu_tot_util() que l'on ajoute dans la liste totale. Puis on ajoute dans les différentes listes les valeurs de cpu correspondante.
+
+### La fonction cpu_tot_util()
+Cette fonction utilise la fonctcion cpu_percent de la bibliothèque psutil qui permet de récupérer l'état des CPU sous formes de liste grâce au paramètre percpu=True et 0,1 en seconde qui est le temps d'acquisition minimum possible.
+
+### La fonction stop()
+Premièrement, on initialise la varaible cpu_calc à 0 pour stopper la boucle de la fonction run(). Ensuite on calcul la consommation moyenne de chaque CPU ainsi que la consommation moyenne totale.
