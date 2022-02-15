@@ -66,3 +66,4 @@ responsive_image:
     - width: 320
     - width: 480
     - width: 800
+theme: jekyll-theme-cayman
