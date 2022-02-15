@@ -27,13 +27,10 @@ url: https://nicomichelas.github.io/Jekyll_example/
 # use baseurl to add subsection of the domain, e.g. /timelinejs-template
 # on gh-pages this is a / followed by the name of the repository
 # baseurl is your github repository's name prefixed with a /
-baseurl: /video_analyse_performance_report
+baseurl: /Jekyll_example
 # location of code, the full url to your github repository
 source-code: https://github.com/NicoMichelas/Jekyll_example
 
-
-root: /octo-5
-<link rel="stylesheet" href="{{ root_url }}/css/main.css">
 
 ##########
 # GOOGLE ANALYTICS [optional!]
