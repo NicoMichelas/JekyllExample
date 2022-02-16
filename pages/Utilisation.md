@@ -3,57 +3,60 @@ title: Utilisation
 nav: Utilisation
 nav_order: 2
 ---
+Pour vous familiariser avec l'utilisation de notre programme, nous vous proposons ce descriptif qui vous permettra d'utiliser et comprendre le fonctionnement de ce dernier.
 
-Notre objectif étant de permettre l'étude des différents blocs du [projet d’analyse vidéo de monsieur Bronzino](https://github.com/USMB-NS/VideoAnalyticsRD), nous avons structuré notre programme principal (LINK) à l'aide d'une fonction d'analyse de performance qui vous permet de renseigner la vidéo, le bloc de traitement ainsi que le réseau de neuronne souhaités en argument.
+Pour lancer une étude de performance, il vous suffit de renseigner la vidéo, le bloc de traitement ainsi que le réseau de neuronne en argument de la fonction du programme prnicipale. Ainsi le programme éxécutera le bloc de traitement en parallèle d'une récupération des données de la carte qui sont [exportés](https://nicomichelas.github.io/JekyllExample/R%C3%A9sultats.html) en fin de programme .
+
 
 ![alt](Alrgorigramme1.png)
 
-## Execution du programme principal
+## Execution [programme principal](https://github.com/USMB-NS/VideoAnalyticsRD/blob/master/Anal_perf.py)
 * On créé une instance de la classe Analyse_perf (LINK)  
-* On "échantillone" notre vidéo image par image puis on récolte les caractéristiques de notre vidéo.
-* On lance la prise des mesures (CPU,GPU,Mémoires) 
-* On éxécute le bloc de traitement obj_detect.py [LINK]
-* Lorsque la procédure du bloc de traitement est terminé, on stop la prise des mesures 
+* On "échantillone" notre vidéo image par image puis on récupère les caractéristiques de notre vidéo.
+* On lance la récupérations des données (CPU,GPU,Mémoires) 
+* On éxécute le bloc de traitement
+* Lorsque la procédure du bloc de traitement est terminé, on stop la récupérations des données
 * On effectue un traitement des données (stockage dans des fichiers csv et réalisation des graphiques)
 
-## Execution du programme d'analyse de performance
-Ce programme inclut les nombreuses fonctions nous permettant d'analyser les performances du traitement. Créé sous forme de classe, ce dernier ainsi appelable dans notre main#Reformuler.
-Lorsque ce dernier est appelé, il lance les threads CPU et GPU appartement réciproquement aux fichiers CPU_thread.py et GPU_thread.py.[Link] 
+## Execution du [programme d'analyse de performance](https://github.com/USMB-NS/VideoAnalyticsRD/blob/master/Analyse_perf.py)
+Ce programme inclut les nombreuses fonctions nous permettant de récupérer les données de performances du traitement. 
 
-### La première fonction appelé par le programme principal : print_param_video()
+0. Lorsque ce programme est appelé, il lance les threads CPU et GPU appartement réciproquement aux fichiers [CPU_thread.py](https://github.com/USMB-NS/VideoAnalyticsRD/blob/master/CPU_thread.py) et [GPU_thread.py](https://github.com/USMB-NS/VideoAnalyticsRD/blob/master/GPU_thread.py).
+
+### 1. La première fonction appelé par le programme principal : print_param_video()
 Elle permet d'obtenir, comme son nom l'indique, les paramètres de la vidéo tel que la largeur, son poids, la hauteur et les fps. Ces paramètres sont utilisés dans le fichier principal d'analyse.
 
-### La seconde fonction appelée par le programme principal: start()
+### 2. La seconde fonction appelée par le programme principal: start()
 Cette fonction permet de:
-1. Récupèrer le temps à cet instant
-2. Lancer la fonction CPU de psutil.cpu_percent
-3. Lancer le thread du GPU
-4. Lancer le thread du CPU
-5. Récupère l'état de la mémoire utilisé
+* Récuperer le temps à cet instant
+* Lancer la fonction CPU de psutil.cpu_percent
+* Lancer le thread du GPU
+* Lancer le thread du CPU
+* Récuperer l'état de la mémoire utilisée
 
-### La troisième fonction appelée par le programme principal: stop()
+### 3. La troisième fonction appelée par le programme principal: stop()
 A l'inverse de la fonction start(), cette fonction permet de:
-1. Récupèrer le temps à cet instant
-2. Lancer la fonction CPU de psutil.cpu_percent qui arrête l'aquisition des données lancé depuis son premier appel
-3. Arrête le thread du GPU
-4. Arrête le thread du CPU
-5. Récupère l'état de la mémoire utilisé à cet instant 
+* Récuperer le temps à cet instant
+* Lancer la fonction CPU de psutil.cpu_percent qui arrête l'aquisition des données lancée depuis son premier appel
+* Arrêter le thread du GPU
+* Arrêter le thread du CPU
+* Récuperer l'état de la mémoire utilisée 
 
-### La quatrième fonction appelée par le programme principal: t_exec()
-Cette fonction effectue les différents traitement sur les données acquise précédement afin de les exporter dans le fichier principal expData.csv . 
-1. Elle calcule le temps d'éxecution du programme
-2. Elle met en forme les pourcentages de consomation des CPU et GPU
-3. Calcul la consommation de mémoire
-4. Elle exporte les données dans le fichier principal d'analyse (id, tempss, CPU%, Mémoire, GPU%, paramètres de vidéo)
+### 4. La quatrième fonction appelée par le programme principal: t_exec()
+Cette fonction effectue les différents traitement sur les données acquises précédement afin de les exporter dans le fichier principal expData.csv . Son fonctionnement est le suivant: 
+* Elle calcule le temps d'éxecution du programme
+* Elle met en forme les pourcentages de consomation des CPU et GPU
+* Calcul la consommation de mémoire
+* Elle exporte les données dans le fichier principal d'analyse (id, tempss, CPU%, Mémoire, GPU%, paramètres de vidéo)
 
-### Les deux denrières fonction appelée par le programme principal: cpu_exec() et gpu_exec()
+### 5. 6. Les deux dernières fonctions appelées par le programme principal: cpu_exec() et gpu_exec()
 Ces fonctions ont deux utilités: 
 * exporter les données d'analyse dans des fichiers spécifiques
 * créer les graphiques 
-La fonction cpu est quelque peu plus complexe que celle du gpu car les données inclut celles des 4 CPU et donc les représente dans différents graphique.
-Ces graphiques servent à avoir une visualisation plus visuelles des consomations. Nous avons utilisé la bibliothèque Seaborn [link] pour les réaliser.
+La fonction cpu est quelque peu plus complexe que celle du GPU car les données incluent celles des 4 CPU et sont ainsi représenté dans différents graphiques.
+Ces graphiques servent à avoir une visualisation des consomations. Leurs caractéristiques sont expliqués dans la partie [résultat](https://nicomichelas.github.io/JekyllExample/R%C3%A9sultats.htm).
 
-### Les autres fonctions:
+### +. Les autres fonctions:
 #### pprint_ntuple() et print_memory()
 L'utilité de ces fonctions concerne la mesure de l'état de mémoire RAM et SWAP. Par l'appel de la fonction print_memory() on appel deux fois la fonction pprint_ntuples() en précisant en argument la RAM ou la Swap afin d'effectuer une conversion des données récupéréés(àdévelopper).
 
@@ -62,10 +65,6 @@ Les fonctions frame_start(), frame_stop() et frame_exec() ont entre autre la mê
 * exporter les données dans un fichier dédié
 * créer des graphiques
 
-
-4. use customization options
-
-See [docs/create-website.md](https://github.com/thecdil/bootstrap-template/blob/main/docs/create-website.md) for details!
 
 ## Execution du thread GPU:
 Lorsque l'on lance ce thread dans le programme d'analyse de performance[link] on fait directement appel à la fonction run().
