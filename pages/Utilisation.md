@@ -89,3 +89,5 @@ Cette fonction utilise la fonctcion cpu_percent de la bibliothèque psutil qui p
 
 ### La fonction stop()
 Premièrement, on initialise la varaible cpu_calc à 0 pour stopper la boucle de la fonction run(). Ensuite on calcul la consommation moyenne de chaque CPU ainsi que la consommation moyenne totale.
+
+.
