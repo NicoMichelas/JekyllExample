@@ -3,48 +3,22 @@ title: Installation
 nav: installation
 nav_order: 1
 ---
+Si vous souhaitez mettre en oeuvre notre projet sans utiliser de docker (en utilisant VS), nous vous proposons la procédure suivante :
 
-Write pages in Markdown.
-
-## Heading Two 
-
-Any text with no empty lines between will become a paragraph.
-Leave an blank line between headings and paragraphs.
-Font can be *Italic* or **Bold**.
-Code can be highlighted with `backticks`.
-
-Hyperlinks look like this [GitHub Help](https://help.github.com/).
-
-### Lists 
-
-A bullet list is created using `*`, `+`, or `-`, like:
-
-- dog
-- cat
-- muffin
-
-A numbered list is created using a number + `.`, like:
-
-1. one
-2. two
-6. three
-2. four
-
-Horizontal rule:
-
---------------
-
-{% include figure.html img="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/VAN_CAT.png/480px-VAN_CAT.png" alt="white cat" caption="I found this [Cat image on Wikimedia](https://commons.wikimedia.org/wiki/File:VAN_CAT.png)." %}
-
-> A block quote.
-> Is like this.
-{:.blockquote}
-
-### A Table
-
-| header | column a | column b |
-| --- | --- | --- |
-| dogs | 3 | 6 |
-| cats | 3 | 6 |
-| muffins | 15 | 30 |
-{:.table .table-striped}
+1.	Installer Visual Studio
+2.	Synchroniser le dépôt [GitHub](https://github.com/USMB-NS/VideoAnalyticsRD.git) avec VSC 
+3.	Faites un git pull pour télécharger/mettre à jour votre dépôt locale depuis GitHub
+4.	À présent il vous faudra installer les différentes librairies pythons énumérés ci-dessous (pip3 install exemple):
+*	cv2
+*	pandas
+*	numpy
+*	ctypes
+*	datetime
+*	psutil
+*	threading
+*	time
+*	csv
+*	matplotlib
+*	seaborn
+5.	Pour compiler et exécuter le projet il faudra utiliser la commande suivante dans un terminal :
+ *DARKNET_PATH=/**votreChemin**/VideoAnalyticsRD/blocks/libraries/darknet python3 /**votreChemin**/VideoAnalyticsRD/Anal_perf.py*
