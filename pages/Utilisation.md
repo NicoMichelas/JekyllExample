@@ -7,7 +7,6 @@ Pour vous familiariser avec l'utilisation de notre programme, nous vous proposon
 
 Pour lancer une étude de performance, il vous suffit de renseigner la vidéo, le bloc de traitement ainsi que le réseau de neuronne en argument de la fonction du programme prnicipale. Ainsi le programme éxécutera le bloc de traitement en parallèle d'une récupération des données de la carte qui sont [exportés](https://nicomichelas.github.io/JekyllExample/R%C3%A9sultats.html) en fin de programme .
 
-
 ![alt](Alrgorigramme1.png)
 
 ## Execution [programme principal](https://github.com/USMB-NS/VideoAnalyticsRD/blob/master/Anal_perf.py)
@@ -89,4 +88,5 @@ Cette fonction utilise la fonctcion cpu_percent de la bibliothèque psutil qui p
 ### La fonction stop()
 Premièrement, on initialise la varaible cpu_calc à 0 pour stopper la boucle de la fonction run(). Ensuite on calcul la consommation moyenne de chaque CPU ainsi que la consommation moyenne totale.
 
-.
+# Notes importantes sur l'état de nos programmes
+! La carte n'est pas capable de faire tourner d'autre réseau que le Yolo_tiny. Faute de temps nous n'avons pas eu le temps de développer sur ce point.
