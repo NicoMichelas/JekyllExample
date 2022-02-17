@@ -1,6 +1,6 @@
 ---
 title: Installation 
-nav: installation
+nav: Installation
 nav_order: 1
 ---
 Si vous souhaitez mettre en oeuvre notre projet sans utiliser de docker (en utilisant VS), nous vous proposons la procédure suivante :
