@@ -6,7 +6,8 @@
 /* Optionally tweak base body text and link color */
 $text-color: #111 !default;
 $link-color: #2a7ae2 !default;
-
+$text-align: justify;
+$text-justify: inter-word;
 /* Set contain-narrow size for page-narrow layout */
 $container-narrow: 700px;
 

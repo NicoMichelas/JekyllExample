@@ -37,7 +37,7 @@ Une fois que l'exécution du programme est terminé, les résultats d'analyses s
 <br>
 <br>
 
-# Interprétation de nos résultat d'étude
+# Interprétation de nos résultats d'études
 Pour analayser les performances de la carte nous avons choisi d'étudier l'impact de différentes résolutions d'une vidéo (1280x720px, 640x480px et 640x360px) sur le bloc de traitement obj_detect.py,que nous avons adapté de manière à ce qu'il traite l'entièreté de la vidéo (2 secondes), en utilisant le réseau de neuronne Yolo_tiny (qui est un réseau "limité"). Cette étude s'est réalisée en deux temps:
 * Une première étude visant à analyser les différentes données de consommation de la carte.
 * Une seconde étude focalisée sur la pertinence de détection.
@@ -54,7 +54,7 @@ Les résultats obtenus sont les suivants:
 <br>
  Cependant nous avons constaté que pour des conditions d'exécution différentes, les consommations peuvent fortement varier. Sur le graphiques ci-joint, réalisés avec des conditions différentes, on peut par exemple constater que la consommation des CPU avec la résolution 640x360 a nécessité moins de ressources. On ne sait comment interpréter les causes de ces variations, cependant nous tenions à les signaler.
 
-![image](Capture.PNG){: height="350px" width="600px" style="float: left ; margin: 1em;"}
+![image](consoGPU.JPG){: height="350px" width="600px" style="float: left ; margin: 1em;"}
 <br>
 <br>
 <br>
@@ -63,13 +63,7 @@ Les résultats obtenus sont les suivants:
 <br>
 <br>
 
-Concernant l'analyse de la consommation du GPU, on a remarqué que sa consommation est peu importante
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+Concernant l'analyse de la consommation du GPU, on a remarqué que sa consommation est peu importante. Ceci démontre que les CPU fournissent à assez de traitement pour lui "éviter" d'être utilisé ces pleines capacités. On peut également remarquer qu'avec une résolution basse, le GPU peut être amené à ne pas être utilisé, ou très peu. Une chose intérréssante qui pourrait être utile en terme d'économie de ressource mais qui comme le prouve notre seconde étude, admet une précision de détection peu efficace.
 <br>
 <br>
 <br>
@@ -80,7 +74,10 @@ Concernant l'analyse de la consommation du GPU, on a remarqué que sa consommati
 <br>
 
 ### Notre deuxième étude
+
 ![image](AccuracyAnalyse.JPG){: height="350px" width="550px" style="float: left ; margin: 1em;"}
+<br>
+<br>
 En relevant différents résultats d'analyse des précisions de détection on peut déduire les choses suivantes:
 
 * Plus la résolution est bonne, moins le programme est amené à se tromper dans ses détections
@@ -91,11 +88,11 @@ Cependant nous n'avons pas eu la possibilité de vérifier la cohérence de ces 
 <br>
 <br>
 <br>
-<br>
 
 ## Conclusion de nos études
 D'après nos études, la résolution influt peu sur les performances de la carte mais influt sur la précision de détection. 
-<br>
+<br>Bien que notre étude manque quelque peu de temps de développement, nos résultats on toutes fois démontrer une "instabilité" de la carte JetsonNano. En effet, les résultats de perfomances que nous obtenions était peu constant, d'où notre première étude réalisé avec des conditions optimales. Nous pourrions ainsi réaliser une étude plus poussée pour sur ces divergences.
+Pour ce qui est des méthodes que nous avons développé, nous les disons fonctionnelles. Nous pourrions pousser notre étude afin de nous assurer que ces dernières n'influent pas trop sur les performances.
 <br>
 <br>
 <br>
@@ -107,11 +104,12 @@ Les résultats exportables donnent assez de matières pour y effectuer des analy
 
 
 Pour aller plus loin, nous pourrions:
-En terme de programme
+<br>
+<br>En terme de programme:
 * tester notre solutions sur d'autres blocs de traitements
 * tenter d'exécuter notre solution avec d'autres réseaux de neuronnes
 
-en terme d'analyse
+En terme d'analyse:
 * évaluer les performances sur d'autres blocs de traitement
 * évaluer les performances avec d'autres réseaux de neuronnes
 * évaluer l'impact en terme de ressources de notre "analyseur" sur le fonctionnement normal de la carte

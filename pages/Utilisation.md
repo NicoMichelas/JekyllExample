@@ -61,7 +61,7 @@ Ces fonctions ont deux utilités:
 * exporter les données d'analyse dans des fichiers spécifiques
 * créer les différents graphes
 La fonction cpu est quelque peu plus complexe que celle du GPU car les données incluent celles des 4 CPU et sont ainsi représentés dans différents graphiques.
-Ces graphiques servent à avoir une visualisation des consommations. Leurs caractéristiques sont expliqués dans la partie [résultat](https://nicomichelas.github.io/JekyllExample/R%C3%A9sultats.htm).
+Ces graphiques servent à avoir une visualisation des consommations. Leurs caractéristiques sont expliqués dans la partie [résultat](https://nicomichelas.github.io/JekyllExample/R%C3%A9sultats.html).
 
 ### +. Les autres fonctions:
 #### pprint_ntuple() et print_memory()
@@ -75,7 +75,7 @@ Les fonctions frame_start(), frame_stop() et frame_exec() ont à peu près la m�
 <br>
 
 ## Execution du thread GPU:
-Lorsqu'on initialise ce thread dans le programme d'analyse de performance[link] on fait directement appel à la méthode run().
+Lorsqu'on initialise ce thread dans le programme d'analyse de performance on fait directement appel à la méthode run().
 ### La méthode run()
 Cette méthode permet de remplir notre liste list_Gpu=[] avec des valeurs représentant la consommation actuelle du GPU grâce à la fonction gpu_tot_util() et cela tant que notre durant toute la durée du thread.
 
@@ -88,7 +88,7 @@ Comme sont nom l'indique, cette fonction arrête notre thread en envoyant une in
 <br>
 
 ## Execution du thread CPU:
-Lorsqu'on initialise ce thread dans le programme d'analyse de performance[link] on fait directement appel à la méthode run().
+Lorsqu'on initialise ce thread dans le programme d'analyse de performance on fait directement appel à la méthode run().
 ### La méthode run()
 Très similaire à la méthode run du thread GPU, à la différence que nous avons 4 listes au lieu d'une (une pour chaque coeur du CPU).
 
